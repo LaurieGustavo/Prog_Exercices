@@ -1,0 +1,11 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(compile, Some(38d02916-7737-4264-87ff-c777efff0ddd), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / compile[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /home/gustavo/Documents/Prog_Exercices/boardgames_collection/boardgames_collec/target/scala-2.13/classes ...[0m
+[0m[[0m[31merror[0m] [0m[0m/home/gustavo/Documents/Prog_Exercices/boardgames_collection/boardgames_collec/src/main/scala/Library.scala:4:72: not found: value Infinity[0m
+[0m[[0m[31merror[0m] [0m[0m	case class Game(name : String, minPlayers: Int = 0, maxPlayers: Int = Infinity)[0m
+[0m[[0m[31merror[0m] [0m[0m	                                                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 1 s, completed 23 mars 2021 à 17:18:46[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
