@@ -13,7 +13,7 @@ class GameLibrary( val glMap : Map[Game, List[Player]]){
 
 	// Values
 	val games 	: List[Game] 	= glMap.keys.toList
-	val players	: List[Player]	= glMap.values.filter(_.size < 2).toList.flatten.distinct
+	val players	: List[Player]	= glMap.values.toList.flatten.distinct
 	
 	/*----------------------------------------------------------------*/
 
@@ -38,37 +38,44 @@ class GameLibrary( val glMap : Map[Game, List[Player]]){
 	def displayPlayers() : Unit = {
 		players.foreach(p => println(p.name))
 	}
-
-
-	/*
 	
-
-	// return a list of games of player p
-	def gamesOf(p : String) : List[String] = {
-		libraryMap.filter(_._2.contains(p)).keys.toList
+	// Get new GameLibrary of one player only
+	def gamesOf(p: String): GameLibrary = {
+		new GameLibrary(glMap.filter(_._2.exists( _.name == p)).map{
+			case(k,v) => (k, v.filter(_.name == p))
+		})
 	}
 
-	// return number of games of player Player
-	def gamesNbOf(p: String): Int = {
-		gamesOf(p).size
+	// Get new GameLibrary whit only games every player in p have in common
+	def commonGamesOf(p : List[String]): GameLibrary = {
+
+		new GameLibrary(glMap.filter{
+			case(k,v) => p.forall(v.map(_.name).contains(_))
+		}.map{
+			case (k,v) => (k, v.filter( x => p.contains(x.name)))
+		})
 	}
 
-	// return the common games of a list of players p
-	// that is, all the games that are possessed by every player in the list p
-	def commonGamesOf(p : List[String]): List[String] = {
-		libraryMap.filter(g => p.forall(g._2.contains(_))).keys.toList
+	// return the Union of games possessed by at least one player of list p
+	def unionGamesOf(p : List[String]): GameLibrary = {
+
+		new GameLibrary(glMap.filter{
+			case(k,v) => p.exists(v.map(_.name).contains(_))
+		}.map{
+			case(k,v) => (k, v.filter(x => p.contains(x.name)))
+		})
 	}
 
-	// return list of games possessed by at least one player of list players
-	def unionGamesOf(p: List[String]): List[String] = {
-		libraryMap.filter(g => p.exists(g._2.contains(_))).keys.toList
+	// return a new GameLibrary with games playable by x players
+	def forGroupSize( i: Int): GameLibrary = {
+		new GameLibrary(glMap.filter{
+			case(k,v) => k.minPlayers <= i && i <= k.maxPlayers 
+		})
 	}
 
-	// return the list of games that you can play with i players
-	def gamesForGroupSize(i: Int): List[String] = {
-		games.filter(g => g.minPlayers <= i &&  i <= g.maxPlayers).map(_.name)
-	}
-	*/
+	// return the size of the GameLibrary, which is the number of games
+	def size() = games.size
+
 
 }
 
@@ -104,11 +111,7 @@ object TestLibrary extends App {
 	// Bubble Team GameLibrary
 	val BTG : GameLibrary = GameLibrary.FromFile("jeux.csv")
 
-	BTG.displayGames()
-	val lama = BTG.glMap.filter(_._2.exists( _.name == "Gustavo")).map{
-		case(k,v) => (k, v.filter(_.name == "Gustavo"))
-	}
+	BTG.
 
-	println(lama)
 
 }

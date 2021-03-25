@@ -1,7 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/gustavo/Documents/Prog_Exercices/boardgames_collection/boardgames_collec/src/main/scala/Library.scala:27:30: not found: value s[0m
-[0m[[0m[31merror[0m] [0m[0m		games.sortWith(s:String => s.name).foreach(displayGame(_))[0m
-[0m[[0m[31merror[0m] [0m[0m		                           ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/gustavo/Documents/Prog_Exercices/boardgames_collection/boardgames_collec/src/main/scala/Library.scala:27:18: not found: value s[0m
-[0m[[0m[31merror[0m] [0m[0m		games.sortWith(s:String => s.name).foreach(displayGame(_))[0m
-[0m[[0m[31merror[0m] [0m[0m		               ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/gustavo/Documents/Prog_Exercices/boardgames_collection/boardgames_collec/src/main/scala/GameLibrary.scala:77:21: type size is not a member of List[Game][0m
+[0m[[0m[31merror[0m] [0m[0m	def size() : games.size[0m
+[0m[[0m[31merror[0m] [0m[0m	                   ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
