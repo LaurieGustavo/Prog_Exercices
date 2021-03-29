@@ -1,4 +1,6 @@
-[0m[[0m[31merror[0m] [0m[0m/home/gustavo/Documents/Prog_Exercices/boardgames_collection/boardgames_collec/src/main/scala/GameLibrary.scala:77:21: type size is not a member of List[Game][0m
-[0m[[0m[31merror[0m] [0m[0m	def size() : games.size[0m
-[0m[[0m[31merror[0m] [0m[0m	                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/gustavo/Documents/Prog_Exercices/boardgames_collection/boardgames_collec/src/main/scala/GameLibrary.scala:78:26: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : List[Player][0m
+[0m[[0m[31merror[0m] [0m[0m required: List[String][0m
+[0m[[0m[31merror[0m] [0m[0m		this.unionGamesOf(glMap(games.filter(_.name == g)(0)))[0m
+[0m[[0m[31merror[0m] [0m[0m		                       ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m

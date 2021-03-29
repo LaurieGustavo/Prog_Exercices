@@ -67,10 +67,15 @@ class GameLibrary( val glMap : Map[Game, List[Player]]){
 	}
 
 	// return a new GameLibrary with games playable by x players
-	def forGroupSize( i: Int): GameLibrary = {
+	def forGroupSize(i: Int): GameLibrary = {
 		new GameLibrary(glMap.filter{
 			case(k,v) => k.minPlayers <= i && i <= k.maxPlayers 
 		})
+	}
+
+	// get a new GameLibrary with games of players who possess game g
+	def playersOf(g: String): GameLibrary = {
+		this.unionGamesOf(glMap(games.filter(_.name == g)(0)).map(_.name))
 	}
 
 	// return the size of the GameLibrary, which is the number of games
@@ -111,7 +116,7 @@ object TestLibrary extends App {
 	// Bubble Team GameLibrary
 	val BTG : GameLibrary = GameLibrary.FromFile("jeux.csv")
 
-	BTG.
-
+	BTG.commonGamesOf(List("Les Chléos", "Gustavo")).displayGames()
+	BTG.playersOf("Hanabi").displayPlayers()
 
 }
